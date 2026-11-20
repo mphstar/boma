@@ -1,0 +1,17 @@
+export const PHOTOS: Record<string, string> = {
+  hero: '/images/hero.jpg',
+  jeep: '/images/jeep.jpg',
+  trek: '/images/trek.jpg',
+  goa: '/images/goa.jpg',
+  candi: '/images/candi.jpg',
+  kopi: '/images/kopi.jpg',
+  pkopi: '/images/pkopi.jpg',
+  karet: '/images/karet.jpg',
+  pkaret: '/images/pkaret.jpg',
+  sboma: '/images/sboma.jpg',
+  srimba: '/images/srimba.jpg',
+  glamp: '/images/glamp.jpg',
+  camp: '/images/camp.jpg',
+  event: '/images/event.jpg',
+  out: '/images/out.jpg',
+};
