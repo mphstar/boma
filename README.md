@@ -31,12 +31,12 @@ Situs ini dibuat untuk pengunjung yang datang dengan waktu terbatas. Kalau bingu
 - 🧭 **Rekomendasi yang bisa dijelaskan.** Tiga pertanyaan tentang aktivitas, anggaran, dan teman perjalanan. Hasilnya daftar tempat beserta alasannya.
 - 🗂️ **Katalog lengkap.** Empat belas destinasi, bisa disaring berdasarkan Minat Khusus, Alam, Buatan, atau Sosial Budaya.
 - 🏞️ **Detail yang berguna.** Harga, durasi, tingkat aktivitas, dan destinasi lain yang mirip.
-- 🎟️ **Tiket dan paket.** Tiap wisata punya pilihan tiket masuk dan paket pengalaman, dengan harga Rupiah dan tampilan pembayaran QRIS.
+- 🎟️ **Tiket dan paket.** Tiap wisata punya pilihan tiket masuk dan paket pengalaman, dengan harga Rupiah dan alur pemesanan.
 - ⌨️ **Bisa dipakai tanpa mouse.** Fokus keyboard terlihat, dan dialog bisa ditutup dengan Escape.
 - 🌾 **Gerak yang sopan.** Animasi mengikuti pengaturan perangkat. Kalau gerak diminta dikurangi, BOMA ikut tenang.
 
 > [!NOTE]
-> QRIS di situs ini hanya tampilan. Tidak ada pembayaran yang diproses, tidak ada data pemesan yang dikirim, dan tidak ada tiket yang diterbitkan. Harga tiket juga masih contoh, jadi konfirmasi tarif ke pengelola sebelum datang.
+> Pembayaran online belum aktif. Harga tiket di situs ini masih perkiraan, dan kode QRIS belum terhubung ke sistem pembayaran. Konfirmasi tarif, pembayaran, dan ketersediaan ke pengelola sebelum datang. Tidak ada data pemesan yang dikirim ke server.
 
 ## 🧭 Cara BOMA memilih
 

@@ -26,13 +26,13 @@ export function TicketSection({ destination }: { destination: Destination }) {
             <p className="dest-kicker">Pesan kunjungan</p>
             <h2 id="ticket-title" tabIndex={-1}>Tiket &amp; paket</h2>
             <p>
-              Pilih tiket masuk atau paket yang sudah termasuk pengalaman. Harga di bawah adalah
-              contoh untuk tampilan.
+              Pilih tiket masuk atau paket yang sesuai rencana kunjunganmu. Semua harga dalam
+              Rupiah.
             </p>
           </div>
-          <p className="ticket-demo">
+          <p className="ticket-note">
             <span aria-hidden="true" />
-            Mode demo. QRIS belum terhubung ke pembayaran nyata.
+            Dihitung dalam Rupiah
           </p>
         </header>
 
@@ -65,7 +65,8 @@ export function TicketSection({ destination }: { destination: Destination }) {
         </div>
 
         <p className="ticket-fineprint">
-          Harga contoh. Konfirmasi tarif, jadwal, dan ketersediaan ke pengelola sebelum memesan.
+          Harga dapat berubah. Konfirmasi tarif, jadwal, dan ketersediaan ke pengelola sebelum
+          memesan.
         </p>
 
         <TicketDialog

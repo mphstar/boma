@@ -35,7 +35,7 @@ const QR_FINDERS: ReadonlyArray<readonly [number, number]> = [
   [0, QR_SIZE - 7],
 ];
 
-function buildDemoQr(seed: string): boolean[][] {
+function buildOrderQr(seed: string): boolean[][] {
   let hash = 2166136261;
   for (let index = 0; index < seed.length; index += 1) {
     hash = Math.imul(hash ^ seed.charCodeAt(index), 16777619);
@@ -78,14 +78,14 @@ function buildDemoQr(seed: string): boolean[][] {
   return grid;
 }
 
-function DemoQr({ seed }: { seed: string }) {
-  const grid = useMemo(() => buildDemoQr(seed), [seed]);
+function OrderQr({ seed }: { seed: string }) {
+  const grid = useMemo(() => buildOrderQr(seed), [seed]);
 
   return (
     <svg
       viewBox={`0 0 ${QR_SIZE} ${QR_SIZE}`}
       role="img"
-      aria-label="Kode QRIS demo, bukan kode pembayaran nyata"
+      aria-label="Kode QRIS pesanan kunjungan BOMA"
       shapeRendering="crispEdges"
     >
       <rect width={QR_SIZE} height={QR_SIZE} fill="#ffffff" />
@@ -188,7 +188,7 @@ export function TicketDialog({ destination, plan, onClose }: TicketDialogProps) 
     setStep('pay');
   };
 
-  const handlePaid = () => {
+  const handleConfirm = () => {
     if (!current) return;
     const suffix = Math.random().toString(36).slice(2, 6).toUpperCase();
     const prefix = current.id.replace(/[^a-z0-9]/gi, '').slice(0, 4).toUpperCase();
@@ -197,14 +197,18 @@ export function TicketDialog({ destination, plan, onClose }: TicketDialogProps) 
   };
 
   const title =
-    step === 'detail' ? 'Atur kunjunganmu' : step === 'pay' ? 'Pembayaran QRIS' : 'Pesanan demo';
+    step === 'detail'
+      ? 'Atur kunjunganmu'
+      : step === 'pay'
+        ? 'Pembayaran QRIS'
+        : 'Ringkasan pesanan';
 
   const subtitle =
     step === 'detail'
       ? 'Isi nama, tanggal, dan jumlah. Data tidak dikirim ke mana pun.'
       : step === 'pay'
-        ? 'Pindai kode contoh ini. Tidak ada transaksi nyata.'
-        : 'Simulasi selesai. Tidak ada tiket yang diterbitkan.';
+        ? 'Periksa rincian kunjungan, lalu konfirmasi pesananmu.'
+        : 'Bawa ringkasan ini saat konfirmasi ke pengelola.';
 
   return (
     <dialog
@@ -294,7 +298,7 @@ export function TicketDialog({ destination, plan, onClose }: TicketDialogProps) 
 
               <p className={`ticket-hint${canContinue ? '' : ' warn'}`} id="ticketHint">
                 {canContinue
-                  ? 'Harga contoh, bukan tagihan resmi.'
+                  ? 'Total mengikuti jumlah yang dipilih.'
                   : 'Isi nama pemesan dan tanggal kunjungan untuk melanjutkan.'}
               </p>
 
@@ -344,28 +348,24 @@ export function TicketDialog({ destination, plan, onClose }: TicketDialogProps) 
               <div className="qris-card">
                 <div className="qris-top">
                   <span className="qris-brand">QRIS</span>
-                  <span className="qris-demo">DEMO</span>
+                  <span className="qris-issuer">BOMA</span>
                 </div>
                 <div className="qris-code">
-                  <DemoQr seed={`${destination.key}-${current.id}`} />
-                  <span className="qris-stamp" aria-hidden="true">DEMO</span>
+                  <OrderQr seed={`${destination.key}-${current.id}`} />
                 </div>
-                <p className="qris-caption">
-                  Kode QRIS demo. Tidak terhubung ke aplikasi pembayaran.
-                </p>
               </div>
 
               <p className="qris-note">
-                Tombol di bawah hanya melanjutkan simulasi. Tidak ada dana yang ditarik dan tidak
-                ada tiket yang dikirim.
+                Pembayaran online belum aktif. Kode QRIS ini belum bisa dipakai, jadi konfirmasi
+                tiket dan pembayaran ke pengelola.
               </p>
 
               <div className="ticket-actions">
                 <button type="button" className="ticket-cancel" onClick={() => setStep('detail')}>
                   Kembali
                 </button>
-                <button className="btn dark" type="button" onClick={handlePaid}>
-                  Saya sudah bayar (demo)
+                <button className="btn dark" type="button" onClick={handleConfirm}>
+                  Konfirmasi pesanan
                 </button>
               </div>
             </div>
@@ -376,10 +376,10 @@ export function TicketDialog({ destination, plan, onClose }: TicketDialogProps) 
               <span className="done-mark" aria-hidden="true">
                 ✓
               </span>
-              <h3>Simulasi selesai</h3>
+              <h3>Rencana kunjungan siap</h3>
               <p>
-                Pesanan contoh sudah dibuat. Tidak ada pembayaran yang diproses dan tidak ada tiket
-                yang diterbitkan.
+                Tunjukkan ringkasan ini ke pengelola untuk menyelesaikan pembayaran dan mendapatkan
+                tiket.
               </p>
 
               <dl className="done-list">
@@ -412,7 +412,7 @@ export function TicketDialog({ destination, plan, onClose }: TicketDialogProps) 
               </dl>
 
               <p className="order-code">
-                Kode demo <strong>{orderCode}</strong>
+                Kode ringkasan <strong>{orderCode}</strong>
               </p>
               <button className="btn dark ticket-done-btn" type="button" onClick={onClose}>
                 Tutup
