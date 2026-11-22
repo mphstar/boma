@@ -35,6 +35,7 @@ const QR_FINDERS: ReadonlyArray<readonly [number, number]> = [
   [0, QR_SIZE - 7],
 ];
 
+// Pola dibuat dari seed supaya kode tetap sama untuk pesanan yang sama.
 function buildOrderQr(seed: string): boolean[][] {
   let hash = 2166136261;
   for (let index = 0; index < seed.length; index += 1) {
