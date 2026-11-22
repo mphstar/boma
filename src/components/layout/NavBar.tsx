@@ -18,14 +18,21 @@ export function NavBar({ route }: { route: Route }) {
   return (
     <nav>
       <a className="logo" href="#/">
-        <i />BOMA
+        <img
+          src="/assets/logo-mark-cream.webp"
+          alt=""
+          width="26"
+          height="28"
+          decoding="async"
+        />
+        BOMA
       </a>
       <div className="links">
         {links.map((link) => (
           <a
             key={link.route}
             href={link.href}
-            className={link.route === route ? 'act' : undefined}
+            className={(link.route === route || (route === 'wisata' && link.route === 'katalog')) ? 'act' : undefined}
           >
             {link.label}
           </a>

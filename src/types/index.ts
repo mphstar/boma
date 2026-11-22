@@ -61,6 +61,7 @@ export interface QuestionOption {
 export interface QuestionConfig {
   key: keyof Selection;
   title: string;
+  stepLabel: string;
   hint: string;
   options: QuestionOption[];
 }

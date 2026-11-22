@@ -3,7 +3,14 @@ export function Footer() {
     <footer>
       <div className="wrap">
         <div className="logo">
-          <i />BOMA
+          <img
+            src="/assets/logo-mark-cream.webp"
+            alt=""
+            width="26"
+            height="28"
+            decoding="async"
+          />
+          BOMA
         </div>
         <p>
           Informasi wisata untuk kawasan BOMA Gunung Pasang, Perumda Perkebunan Kahyangan Jember.

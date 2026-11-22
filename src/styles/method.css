@@ -1,10 +1,10 @@
-#metode{padding:130px 0 100px;background:var(--cream)}
-.tbl{overflow-x:auto;margin-top:26px;border-radius:18px;border:1px solid var(--cream-2);background:#fbf8ec}
+#metode{padding:130px 0 100px;background:var(--paper)}
+.tbl{overflow-x:auto;margin-top:26px;border-radius:18px;border:1px solid var(--paper-2);background:#fff}
 table{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px}
-th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--cream-2)}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--paper-2)}
 th{background:var(--forest);color:var(--cream);font-weight:700;font-size:13.5px;position:sticky;top:0}
 tr:last-child td{border-bottom:0}
-tbody tr:hover{background:#f1ecd6}
+tbody tr:hover{background:var(--paper-3)}
 .info3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:26px}
 .info3>div{background:var(--forest);color:var(--cream);border-radius:20px;padding:24px}
 .info3 b{font-family:var(--serif);font-size:22px;font-weight:500;display:block;margin-bottom:6px}

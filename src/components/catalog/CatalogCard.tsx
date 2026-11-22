@@ -12,15 +12,20 @@ interface CatalogCardProps {
 }
 
 export function CatalogCard({ destination, index, hidden, recommended }: CatalogCardProps) {
-  const className = ['card', 'rv', hidden ? 'hide' : '', recommended ? 'rec' : '']
-    .filter(Boolean)
-    .join(' ');
+  const className = ['card', 'rv', recommended ? 'rec' : ''].filter(Boolean).join(' ');
 
   return (
-    <article className={className} style={{ '--i': index % 3 } as CSSProperties}>
+    <article
+      className={className}
+      hidden={hidden}
+      style={{ '--i': index % 3 } as CSSProperties}
+    >
       <a className="card-link" href={destinationHref(destination.key)} aria-label={`Lihat ${destination.name}`}>
         <div className="ph">
-          <Scene sceneKey={destination.key} />
+          <Scene
+            sceneKey={destination.key}
+            sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 980px) 45vw, 400px"
+          />
           <em>{destination.category}</em>
           {recommended && <span className="badge">Rekomendasi untuk Anda</span>}
         </div>

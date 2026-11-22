@@ -1,19 +1,21 @@
 :root{
   --deep:#10241b; --forest:#1c3a2b; --moss:#2c4f38; --olive:#6f7d3c; --olive-l:#a9b46e;
-  --cream:#f4efde; --cream-2:#e9e3cc; --sand:#d8c691; --ink:#1b2a21; --mute:#667064;
+  --cream:#f4efde; --cream-2:#e9e3cc; --sand:#d8c691; --ink:#1b2a21; --mute:#667064; --red:#9c2f22;
+  --paper:#f3f3f2; --paper-2:#e6e6e4; --paper-3:#ededeb; --olive-ink:#5f6c33;
   --serif:'Playfair Display',Georgia,'Times New Roman',serif;
   --sans:'Manrope','Segoe UI',Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 :focus-visible{outline:2px solid var(--sand);outline-offset:3px}
 img,svg{display:block}
 
 .scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .scene>svg{width:100%;height:100%;display:block}
+picture{display:contents}
 
 section{position:relative}
 .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
@@ -44,4 +46,4 @@ section{position:relative}
   *{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
-@media print{nav,footer,.rep-act,dialog{display:none!important}}
+@media print{nav,footer,.rep-actions,.rep-more-link,dialog{display:none!important}}

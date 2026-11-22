@@ -1,22 +1,50 @@
-body[data-page=home]{overflow:hidden;height:100vh;height:100svh}
+body[data-page=home]{overflow:hidden;height:100vh;height:100svh;background:var(--deep)}
 body[data-page=home] footer{display:none}
 
-.hero{position:relative;height:100vh;height:100svh;color:var(--cream);overflow:hidden;background:var(--deep)}
-.bg-stack{position:absolute;inset:0;transition:transform .9s var(--ease)}
-.bg{position:absolute;inset:-3%;opacity:0;transform:scale(1.14);transition:opacity 1.3s var(--ease),transform 2.6s var(--ease)}
-.bg.on{opacity:1;transform:scale(1)}
+.hero{position:relative;height:100vh;height:100svh;color:var(--cream);overflow:hidden;background:var(--deep);--lead:0s}
+.hero.first{--lead:.24s}
+
+/* Latar bergerak seperti kamera: dorong sesuai arah, lalu melayang pelan. */
+.bg-stack{position:absolute;inset:0;z-index:0;transform:translate3d(calc(var(--px,0) * -26px),calc(var(--py,0) * -16px),0);will-change:transform}
+.bg{position:absolute;inset:-3%;opacity:0;transform:scale(1.04) translateX(calc(var(--dir,1) * 3%));z-index:1}
+.bg[data-state=on],.bg[data-state=out]{transition:opacity 1s var(--ease),transform 1.5s var(--ease)}
+.bg[data-state=on]{opacity:1;transform:none;z-index:2}
+.bg[data-state=out]{opacity:0;transform:scale(1.02) translateX(calc(var(--dir,1) * -3%));z-index:1}
+.bg[data-state=on] .scene,.bg[data-state=out] .scene{animation:bgDrift 12s linear both}
+@keyframes bgDrift{from{transform:scale(1)}to{transform:scale(1.05) translate3d(-1%,-.7%,0)}}
 .bg svg{filter:blur(2.5px) brightness(.8) saturate(.9)}
 .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,26,19,.9) 0%,rgba(10,26,19,.55) 45%,rgba(10,26,19,.1) 100%),linear-gradient(0deg,rgba(10,26,19,.75),transparent 45%)}
 
 .hero-in{position:relative;z-index:2;height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center;padding:90px clamp(20px,4vw,56px) 36px clamp(28px,6vw,96px)}
+.info{transform:translate3d(calc(var(--px,0) * 7px),calc(var(--py,0) * 4px),0)}
+
 .info>*{opacity:0}
-.info.swap>*{animation:up .9s var(--ease) both}
-.info.swap>*:nth-child(2){animation-delay:.07s}
-.info.swap>*:nth-child(3){animation-delay:.14s}
-.info.swap>*:nth-child(4){animation-delay:.21s}
-.info.swap>*:nth-child(5){animation-delay:.28s}
-.info.swap>*:nth-child(6){animation-delay:.35s}
-@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.info h1{opacity:1}
+
+.info.swap .kat{animation:katWipe .85s var(--ease) var(--lead) both}
+@keyframes katWipe{from{opacity:0;clip-path:inset(-15% 100% -15% 0)}to{opacity:1;clip-path:inset(-15% -15% -15% -15%)}}
+
+.hero h1 .w{display:inline-block;clip-path:inset(-.18em -.12em -.04em -.12em)}
+.hero h1 .wi{display:inline-block;transform:translateY(130%) rotate(1deg);transform-origin:left bottom}
+.info.swap h1 .wi{animation:wordUp .95s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--lead) + .1s + var(--w,0) * 80ms)}
+@keyframes wordUp{from{transform:translateY(130%) rotate(1deg)}to{transform:translateY(0) rotate(0)}}
+
+.info.swap .lead{animation:riseIn .8s var(--ease) calc(var(--lead) + .3s) both}
+.info.swap .tags{animation:riseIn .7s var(--ease) calc(var(--lead) + .4s) both}
+.info.swap .tags span{animation:chipIn .55s var(--ease) both}
+.info.swap .tags span:nth-child(1){animation-delay:calc(var(--lead) + .42s)}
+.info.swap .tags span:nth-child(2){animation-delay:calc(var(--lead) + .47s)}
+.info.swap .tags span:nth-child(3){animation-delay:calc(var(--lead) + .52s)}
+.info.swap .tags span:nth-child(4){animation-delay:calc(var(--lead) + .57s)}
+.info.swap .meta-row{animation:riseIn .8s var(--ease) calc(var(--lead) + .52s) both}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes chipIn{from{opacity:0;transform:translateY(8px) scale(.92)}to{opacity:1;transform:none}}
+
+.info.out h1 .wi{animation:wordOut .28s cubic-bezier(.55,0,.8,.2) both}
+@keyframes wordOut{from{transform:translateY(0) rotate(0)}to{transform:translateY(-135%) rotate(-1deg)}}
+.info.out .kat,.info.out .lead,.info.out .tags,.info.out .meta-row{animation:softOut .24s var(--ease) both}
+@keyframes softOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-8px)}}
+
 .kat{font-family:var(--serif);font-style:italic;color:var(--sand);font-size:clamp(20px,2.3vw,32px)}
 .hero h1{font-weight:300;text-transform:uppercase;font-size:clamp(30px,4.6vw,68px);line-height:1.04;letter-spacing:.01em;margin-top:6px}
 .hero .lead{max-width:480px;margin:20px 0 16px;font-size:15.5px;color:#e4e2cf;line-height:1.65}
@@ -24,21 +52,56 @@ body[data-page=home] footer{display:none}
 .hero .px{font-size:14px;color:var(--sand);margin:14px 0 28px}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
 
-.cwrap{position:relative;min-width:0;padding-bottom:50px}
+.cwrap{position:relative;min-width:0;padding-bottom:50px;transform:translate3d(calc(var(--px,0) * 12px),calc(var(--py,0) * 7px),0)}
 .track{position:relative;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:22px 4px 10px}
 .track::-webkit-scrollbar{display:none}
-.ccard{position:relative;flex:0 0 clamp(150px,13vw,200px);aspect-ratio:3/4.1;border-radius:18px;overflow:hidden;scroll-snap-align:start;text-align:left;color:var(--cream);box-shadow:0 22px 50px -18px rgba(0,0,0,.7);border:1px solid rgba(244,239,222,.18);transition:transform .5s var(--ease),border-color .4s,opacity .4s;opacity:.72}
-.ccard:hover{opacity:1;transform:translateY(-6px)}
-.ccard.active{opacity:1;transform:translateY(-14px);border:2px solid var(--sand)}
+.ccard{position:relative;flex:0 0 clamp(150px,13vw,200px);aspect-ratio:3/4.1;border-radius:18px;overflow:hidden;scroll-snap-align:start;text-align:left;color:var(--cream);box-shadow:0 22px 50px -18px rgba(0,0,0,.7);border:1px solid rgba(244,239,222,.18);transition:transform .55s var(--ease),border-color .4s,opacity .45s;opacity:.72}
+.ccard:hover{opacity:1;transform:translateY(-6px) scale(1.02)}
+.ccard.active{opacity:1;transform:translateY(-14px) scale(1.03);border:2px solid var(--sand)}
 .ccard .scene{transition:transform 1.2s var(--ease)}
 .ccard:hover .scene{transform:scale(1.1)}
+.ccard.active .scene{transform:scale(1.07)}
+@keyframes cardRise{from{translate:0 28px}to{translate:0 0}}
+.track .ccard{animation:cardRise .8s var(--ease) both;animation-delay:calc(var(--lead,0s) + var(--k,0) * 35ms)}
 .ccard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,22,16,.92),transparent 60%)}
 .ccard .t{position:absolute;z-index:2;left:13px;right:13px;bottom:13px}
 .ccard small{font-size:11px;opacity:.8;display:block}
 .ccard h3{font-size:clamp(14px,1.2vw,17px);font-weight:800;line-height:1.2}
 
+/* Rel menyusut ke belakang menjauh dari kartu aktif. */
+@media(min-width:981px){
+  .ccard{opacity:clamp(.4,calc(.82 - var(--d,0) * .055),.82);transform:scale(calc(1 - var(--d,0) * .016));transform-origin:center bottom}
+  .ccard:hover{opacity:1;transform:translateY(-6px) scale(1.02)}
+  .ccard.active{opacity:1;transform:translateY(-14px) scale(1.03)}
+}
+
 .arrows{display:flex;gap:10px;position:absolute;left:0;bottom:0}
-.arrows button{width:40px;height:40px;border-radius:50%;background:rgba(244,239,222,.16);backdrop-filter:blur(6px);display:grid;place-items:center;transition:.3s;font-size:20px}
-.arrows button:hover{background:var(--cream);color:var(--deep);transform:scale(1.1)}
+.arrows button{width:40px;height:40px;border-radius:50%;background:rgba(244,239,222,.16);backdrop-filter:blur(6px);display:grid;place-items:center;transition:background .3s,color .3s,transform .3s var(--ease);font-size:20px}
+.arrows button:hover{background:var(--cream);color:var(--deep);transform:scale(1.08)}
+.arrows button:active{transform:scale(.94)}
+.arrows .ico{position:relative;display:block;width:12px;height:12px}
+.arrows .ico::before,.arrows .ico::after{content:"";position:absolute;background:currentColor}
+.arrows .ico.pause::before{left:2px;top:1px;width:3px;height:10px;border-radius:1px}
+.arrows .ico.pause::after{right:2px;top:1px;width:3px;height:10px;border-radius:1px}
+.arrows .ico.play::before{left:3px;top:1px;width:0;height:0;background:none;border-left:9px solid currentColor;border-top:5.5px solid transparent;border-bottom:5.5px solid transparent}
+.arrows .ico.play::after{display:none}
+
 .count{position:absolute;right:0;bottom:10px;display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:.1em;color:#d5d3bd}
-.count i{width:56px;height:1px;background:rgba(244,239,222,.4)}
+.count-now{display:inline-block;overflow:hidden;height:1.4em;line-height:1.4}
+.count-roll{display:block;animation:rollUp .6s var(--ease) both}
+@keyframes rollUp{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+.count-line{position:relative;display:block;width:56px;height:1px;background:rgba(244,239,222,.28);overflow:hidden}
+.count-fill{position:absolute;inset:0;display:block;background:var(--sand);transform:scaleX(0);transform-origin:left center;animation:dwell var(--dwell,7500ms) linear both}
+@keyframes dwell{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+@media(prefers-reduced-motion:reduce){
+  .bg[data-state=on] .scene,.bg[data-state=out] .scene{animation:none}
+  .count-fill{display:none}
+  .count-roll{animation:none}
+}
+
+/* Cegah isi hero hilang saat dicetak, karena animasi masuk tidak dijalankan. */
+@media print{
+  .hero .info>*{opacity:1!important}
+  .hero h1 .wi{transform:none!important}
+}

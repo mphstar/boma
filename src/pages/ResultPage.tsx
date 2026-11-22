@@ -1,16 +1,11 @@
 import { useRecommendation } from '../context/RecommendationContext';
-import { useToast } from '../context/ToastContext';
-import { WHY } from '../data/decisionTree';
-import { byId } from '../data/destinations';
+import { DESTINATIONS, byId } from '../data/destinations';
 import type { Destination } from '../types';
-import { copyToClipboard } from '../utils/clipboard';
-import { buildSummary, formatReportDate } from '../utils/format';
+import { CatalogCard } from '../components/catalog/CatalogCard';
 import { DestinationCard } from '../components/result/DestinationCard';
-import { Scene } from '../components/ui/Scene';
 
 export function ResultPage() {
   const { recommendation, openDialog } = useRecommendation();
-  const toast = useToast();
 
   if (!recommendation) return null;
 
@@ -18,112 +13,72 @@ export function ResultPage() {
   const destinations = result.ids
     .map(byId)
     .filter((destination): destination is Destination => Boolean(destination));
-
-  const [lede, ...reasons] = WHY[result.leaf];
-  const categoryParts = result.category.split(' & ');
-
-  const handleCopy = async () => {
-    const copied = await copyToClipboard(buildSummary(recommendation));
-    toast(copied ? 'Ringkasan disalin' : 'Gagal menyalin');
-  };
+  const others = DESTINATIONS.filter((destination) => !result.ids.includes(destination.id)).slice(0, 3);
 
   return (
-    <section className="view" id="hasil" aria-live="polite">
-      <div className="rep-top">
-        <div className="rep-bg">
-          <Scene sceneKey={destinations[0]?.key ?? 'jeep'} />
-        </div>
-        <div className="rep-in">
-          <div className="wrap">
-            <div className="stamp">
-              <span>Laporan perjalanan personal · BOMA Gunung Pasang</span>
-              <span>{formatReportDate()}</span>
-            </div>
-            <div style={{ fontSize: 15, color: 'var(--sand)', marginBottom: 10 }}>
-              Kategori wisata untukmu
-            </div>
-            <div className="rep-cat">
-              {categoryParts.length > 1 ? (
-                <>
-                  {categoryParts[0]} <em>&amp;</em> {categoryParts[1]}
-                </>
-              ) : (
-                result.category
-              )}
-            </div>
-            <p className="rep-lede">{lede}</p>
-            <div className="profile">
-              {[
-                ['Aktivitas', selection.activity],
-                ['Harga', selection.price],
-                ['Wisatawan', selection.tourist],
-              ].map(([label, value]) => (
-                <span className="chip" key={label}>
-                  <b>{label}</b>
-                  {value}
-                </span>
-              ))}
-            </div>
+    <main className="result-page">
+      <section id="hasil" aria-labelledby="repHead" tabIndex={-1}>
+        <div className="wrap">
+          <header className="rep-head rv">
+            <p className="rep-badge">
+              <i aria-hidden="true" />
+              Rekomendasi untuk Anda
+            </p>
+            <h1 className="rep-title" id="repHead">
+              Destinasi yang paling dekat dengan jawabanmu
+            </h1>
+            <p className="rep-sub">
+              {result.category}. {destinations.length} destinasi untuk profil {selection.activity} ·{' '}
+              {selection.price} · {selection.tourist}.
+            </p>
+          </header>
+
+          <div className="dest">
+            {destinations.map((destination, index) => (
+              <DestinationCard key={destination.id} destination={destination} index={index} />
+            ))}
+          </div>
+
+          <div className="rep-actions rv">
+            <button className="btn dark" onClick={openDialog}>
+              Ubah preferensi
+            </button>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="wrap">
-        <div className="rep-body">
-          <div>
-            <h4>Pilihan Anda</h4>
-            <div className="profile profile-summary">
-              {[
-                ['Aktivitas', selection.activity],
-                ['Biaya', selection.price],
-                ['Wisatawan', selection.tourist],
-              ].map(([label, value]) => (
-                <span className="chip" key={label}>
-                  <b>{label}</b>
-                  {value}
-                </span>
-              ))}
+      <section className="rep-more" aria-labelledby="repMoreHead">
+        <div className="wrap">
+          <header className="rep-more-head rv">
+            <div>
+              <p className="rep-kicker">Jelajahi lainnya</p>
+              <h2 className="h2 rep-more-title" id="repMoreHead">
+                Wisata lain di BOMA Gunung Pasang
+              </h2>
             </div>
+            <a className="rep-more-link" href="#/katalog">
+              Lihat semua di katalog
+            </a>
+          </header>
+
+          <div className="grid">
+            {others.map((destination, index) => (
+              <CatalogCard
+                key={destination.id}
+                destination={destination}
+                index={index}
+                hidden={false}
+                recommended={false}
+              />
+            ))}
           </div>
-          <div>
-            <h4>Mengapa ini cocok</h4>
-            <div className="why">
-              {reasons.map((reason) => (
-                <p key={reason}>{reason}</p>
-              ))}
-            </div>
-          </div>
-        </div>
 
-        <h4 style={{ fontFamily: 'var(--serif)', fontSize: 30, fontWeight: 500, marginTop: 80 }}>
-          {destinations.length} destinasi yang sesuai
-        </h4>
-        <div className="dest">
-          {destinations.map((destination, index) => (
-            <DestinationCard key={destination.id} destination={destination} index={index} />
-          ))}
+          <p className="disc rv">
+            Harga pada kartu bersumber dari booklet BOMA dan bersifat indikatif. Konfirmasi tarif
+            aktual, jadwal, dan ketersediaan kepada pengelola Perumda Perkebunan Kahyangan Jember.
+          </p>
         </div>
-
-        <div className="rep-act">
-          <a className="btn primary" href="#/katalog">
-            Lihat di katalog
-          </a>
-          <button className="btn ghost" onClick={handleCopy}>
-            Salin ringkasan
-          </button>
-          <button className="btn ghost" onClick={() => window.print()}>
-            Cetak laporan
-          </button>
-          <button className="btn ghost" onClick={openDialog}>
-            Ubah preferensi
-          </button>
-        </div>
-
-        <p className="disc">
-          Harga pada kartu bersumber dari booklet BOMA dan bersifat indikatif. Konfirmasi tarif
-          aktual, jadwal, dan ketersediaan kepada pengelola Perumda Perkebunan Kahyangan Jember.
-        </p>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

@@ -6,6 +6,7 @@ export const QUESTIONS: QuestionConfig[] = [
   {
     key: 'activity',
     title: 'Tingkat aktivitas',
+    stepLabel: 'Aktivitas',
     hint: 'Seberapa aktif kamu ingin bergerak?',
     options: [
       { value: 'Aktif', description: 'Bergerak, menantang, berpetualang' },
@@ -16,6 +17,7 @@ export const QUESTIONS: QuestionConfig[] = [
   {
     key: 'price',
     title: 'Harga',
+    stepLabel: 'Anggaran',
     hint: 'Kelas anggaran yang nyaman',
     options: [
       { value: 'Premium', description: 'Pengalaman terbaik, anggaran lebih longgar' },
@@ -25,7 +27,8 @@ export const QUESTIONS: QuestionConfig[] = [
   },
   {
     key: 'tourist',
-    title: 'Wisatawan',
+    title: 'Teman perjalanan',
+    stepLabel: 'Teman jalan',
     hint: 'Kamu berangkat dengan siapa?',
     options: [
       { value: 'Grup', description: 'Keluarga, rombongan, komunitas' },
