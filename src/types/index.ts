@@ -16,7 +16,7 @@ export type LeafKey =
   | 'santai-premium'
   | 'santai-lain';
 
-export type Route = 'home' | 'katalog' | 'hasil' | 'wisata';
+export type Route = 'home' | 'katalog' | 'hasil' | 'wisata' | 'jelajah';
 
 export type TicketUnit = 'orang' | 'jeep' | 'malam' | 'paket';
 

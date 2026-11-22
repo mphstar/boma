@@ -16,6 +16,11 @@ export function Footer() {
           Informasi wisata untuk kawasan BOMA Gunung Pasang, Perumda Perkebunan Kahyangan Jember.
           Harga di situs ini adalah perkiraan. Hubungi pengelola untuk biaya dan jadwal terbaru.
         </p>
+        <div className="site-links">
+          <a className="site-explore" href="#/jelajah">
+            Jelajah &amp; buka wilayah →
+          </a>
+        </div>
       </div>
     </footer>
   );

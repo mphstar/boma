@@ -10,10 +10,14 @@ import { ToastProvider } from './context/ToastContext';
 import { byKey } from './data/destinations';
 import { useRipple } from './helpers/ripple';
 import { useHashRoute } from './hooks/useHashRoute';
+import { AdminApp } from './pages/admin/AdminApp';
 import { CatalogPage } from './pages/CatalogPage';
 import { DestinationPage } from './pages/DestinationPage';
+import { ExplorerPage } from './pages/ExplorerPage';
 import { ResultPage } from './pages/ResultPage';
 import type { Route } from './types';
+import { isAdminHash } from './utils/adminRouter';
+import { explorerPayloadFromHash } from './utils/explorer';
 import { AUTO_DIALOG_DELAY_MS, TRANSITION_COVER_MS, TRANSITION_HOLD_MS, TRANSITION_REVEAL_MS } from './utils/motion';
 import { destinationKeyFromHash } from './utils/router';
 
@@ -36,7 +40,9 @@ function AppShell() {
         ? 'Katalog wisata'
         : activeRoute === 'hasil'
           ? 'Rekomendasi'
-          : (destinationKey && byKey(destinationKey)?.name) || 'Detail wisata';
+          : activeRoute === 'jelajah'
+            ? 'Jelajah BOMA'
+            : (destinationKey && byKey(destinationKey)?.name) || 'Detail wisata';
 
   const [shownView, setShownView] = useState<PageView>(() => ({
     key: pageKey,
@@ -78,6 +84,13 @@ function AppShell() {
       timers.current = [];
     };
   }, [pageKey]);
+
+  // Jaring pengaman: tirai transisi tidak boleh tertinggal menutup layar.
+  useEffect(() => {
+    if (transition === 'idle') return;
+    const failsafe = window.setTimeout(() => setTransition('idle'), 2600);
+    return () => window.clearTimeout(failsafe);
+  }, [transition]);
 
   useEffect(() => {
     if (route === 'hasil' && !recommendation) {
@@ -138,6 +151,9 @@ function AppShell() {
         {shownView.route === 'home' && <Hero />}
         {shownView.route === 'katalog' && <CatalogPage />}
         {shownView.route === 'hasil' && recommendation && <ResultPage />}
+        {shownView.route === 'jelajah' && (
+          <ExplorerPage scanPayload={explorerPayloadFromHash(hash)} />
+        )}
         {shownView.route === 'wisata' && <DestinationPage destinationKey={shownDestinationKey} />}
       </PageFrame>
       <TransitionOverlay phase={transition} label={pageLabel} />
@@ -147,7 +163,7 @@ function AppShell() {
   );
 }
 
-export default function App() {
+function SiteShell() {
   return (
     <ToastProvider>
       <RecommendationProvider>
@@ -155,4 +171,18 @@ export default function App() {
       </RecommendationProvider>
     </ToastProvider>
   );
+}
+
+export default function App() {
+  const { hash } = useHashRoute();
+
+  if (isAdminHash(hash)) {
+    return (
+      <ToastProvider>
+        <AdminApp />
+      </ToastProvider>
+    );
+  }
+
+  return <SiteShell />;
 }

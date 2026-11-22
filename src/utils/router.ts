@@ -12,6 +12,7 @@ const routePath = (hash: string): string => hash.replace(/^#/, '') || '/';
 export const normalizeRoute = (hash: string): Route => {
   const path = routePath(hash);
   if (path.startsWith('/wisata/')) return 'wisata';
+  if (path === '/jelajah' || path.startsWith('/jelajah/')) return 'jelajah';
   return ROUTES[path] ?? 'home';
 };
 

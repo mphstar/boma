@@ -4,7 +4,7 @@ import type { Route } from '../../types';
 interface NavLink {
   label: string;
   href: string;
-  route: 'home' | 'katalog';
+  route: 'home' | 'katalog' | 'jelajah';
 }
 
 export function NavBar({ route }: { route: Route }) {
@@ -13,6 +13,7 @@ export function NavBar({ route }: { route: Route }) {
   const links: NavLink[] = [
     { label: 'Beranda', href: '#/', route: 'home' },
     { label: 'Katalog', href: '#/katalog', route: 'katalog' },
+    { label: 'Jelajah', href: '#/jelajah', route: 'jelajah' },
   ];
 
   return (

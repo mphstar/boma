@@ -1,4 +1,5 @@
 .transition-overlay{position:fixed;inset:0;z-index:80;overflow:hidden;pointer-events:none}
+.transition-overlay.idle{visibility:hidden}
 .transition-overlay.cover,.transition-overlay.reveal{pointer-events:auto;cursor:wait;touch-action:none;overscroll-behavior:contain}
 
 .to-stage{position:absolute;inset:0;pointer-events:none}

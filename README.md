@@ -32,6 +32,7 @@ Situs ini dibuat untuk pengunjung yang datang dengan waktu terbatas. Kalau bingu
 - 🗂️ **Katalog lengkap.** Empat belas destinasi, bisa disaring berdasarkan Minat Khusus, Alam, Buatan, atau Sosial Budaya.
 - 🏞️ **Detail yang berguna.** Harga, durasi, tingkat aktivitas, dan destinasi lain yang mirip.
 - 🎟️ **Tiket dan paket.** Tiap wisata punya pilihan tiket masuk dan paket pengalaman, dengan harga Rupiah dan alur pemesanan.
+- 🗺️ **Ekspedisi BOMA.** Halaman [`#/jelajah`](https://boma.j-pims.com/#/jelajah) menampilkan 14 wilayah yang terkunci. Pindai QR di lokasi untuk membukanya. Ini simulasi tanpa hadiah, dan progres hanya disimpan di perangkat.
 - ⌨️ **Bisa dipakai tanpa mouse.** Fokus keyboard terlihat, dan dialog bisa ditutup dengan Escape.
 - 🌾 **Gerak yang sopan.** Animasi mengikuti pengaturan perangkat. Kalau gerak diminta dikurangi, BOMA ikut tenang.
 
@@ -92,6 +93,21 @@ npm run preview
 Hasil build ada di folder `dist` dan bisa diunggah ke hosting statis. Semua tautan memakai hash, jadi tidak perlu aturan rewrite di server.
 
 Di PowerShell yang memblokir `npm.ps1`, jalankan `npm.cmd` dengan perintah yang sama.
+
+## 🧑‍💼 Dashboard admin
+
+Dashboard pengelola ada di `/#/admin`. Tautan admin sengaja tidak ditampilkan di situs publik, jadi buka alamat itu langsung dari browser. Isinya katalog wisata, pemesanan, chat pengunjung, jadwal, pemandu, laporan pendapatan, pengaturan, dan bantuan. Data yang dipakai masih data contoh di [`src/data/admin.ts`](src/data/admin.ts).
+
+Di menu **QR Debug** (`/#/admin/qr`) pengelola bisa melihat QR untuk tiap wilayah, menyalin link, membuka wilayah sebagai simulasi pindai, mengunci kembali, atau mereset seluruh progres.
+
+## 🎮 Ekspedisi BOMA
+
+Halaman `/#/jelajah` adalah gamifikasi ringan: semua wilayah tampil terkunci, lalu terbuka saat QR-nya dipindai. QR berisi tautan `#/jelajah/buka/BOMA-<KODE>`; membuka tautan itu langsung menyimpan status terbuka.
+
+- Progres disimpan di `localStorage` dengan kunci `boma.explorer.v1` dan tersinkron antar-tab pada browser yang sama lewat event `storage`.
+- Pemindaian memakai kamera (`getUserMedia` + `jsqr`). Kalau kamera tidak tersedia, kode seperti `BOMA-JEEP` bisa dimasukkan manual.
+- Karena berbasis `localStorage`, progres berlaku per perangkat/browser. Belum ada server, akun, atau hadiah.
+- QR dibuat di sisi klien dengan pustaka `qrcode`; tidak ada data yang dikirim ke luar.
 
 ## 📷 Kredit foto
 

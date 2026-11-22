@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, type ReactNode } from 'react';
 import { disconnectReveal, observeReveal } from '../../helpers/reveal';
+import { resetScrollToTop } from '../../helpers/scroll';
 import type { Recommendation, Route } from '../../types';
 
 interface PageFrameProps {
@@ -13,11 +14,28 @@ interface PageFrameProps {
 export function PageFrame({ route, hash, recommendation, busy, children }: PageFrameProps) {
   useLayoutEffect(() => {
     document.body.dataset.page = route;
-    const root = document.documentElement;
-    const previousBehavior = root.style.scrollBehavior;
-    root.style.scrollBehavior = 'auto';
-    window.scrollTo(0, 0);
-    root.style.scrollBehavior = previousBehavior;
+    resetScrollToTop();
+  }, [route, hash, recommendation]);
+
+  useEffect(() => {
+    let frame = 0;
+    let timer = 0;
+
+    // Browser bisa memulihkan posisi scroll setelah commit; paksa sekali lagi.
+    const settle = () => resetScrollToTop();
+    frame = window.requestAnimationFrame(settle);
+    timer = window.setTimeout(settle, 60);
+
+    const handleShow = (event: PageTransitionEvent) => {
+      if (event.persisted) settle();
+    };
+    window.addEventListener('pageshow', handleShow);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+      window.removeEventListener('pageshow', handleShow);
+    };
   }, [route, hash, recommendation]);
 
   useEffect(() => {

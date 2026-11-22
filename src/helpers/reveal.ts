@@ -24,5 +24,13 @@ export function observeReveal(): void {
     { threshold: 0.1 },
   );
 
-  elements.forEach((element) => observer?.observe(element));
+  elements.forEach((element) => {
+    // Elemen yang sudah ada di layar langsung tampil; observer hanya untuk sisanya.
+    const box = element.getBoundingClientRect();
+    if (box.top < window.innerHeight && box.bottom > 0) {
+      element.classList.add('in');
+      return;
+    }
+    observer?.observe(element);
+  });
 }

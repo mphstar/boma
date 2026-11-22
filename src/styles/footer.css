@@ -1,3 +1,6 @@
 footer{background:var(--deep);color:#b9bca3;padding:70px 0 40px;font-size:14px}
 footer .logo{color:var(--cream);margin-bottom:18px}
 footer p{max-width:620px}
+footer .site-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:22px}
+footer .site-explore{display:inline-block;color:var(--cream);font-weight:700;font-size:13px;text-decoration:none;border-bottom:1px solid rgba(244,239,222,.45);padding-bottom:2px;transition:color .3s,border-color .3s}
+footer .site-explore:hover{color:var(--sand);border-color:var(--sand)}
