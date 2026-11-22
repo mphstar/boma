@@ -1,8 +1,10 @@
 import type { CSSProperties } from 'react';
 import { CatalogCard } from '../components/catalog/CatalogCard';
+import { TicketSection } from '../components/ticket/TicketSection';
 import { Scene } from '../components/ui/Scene';
 import { useRecommendation } from '../context/RecommendationContext';
 import { DESTINATIONS, byKey } from '../data/destinations';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 const revealStyle = (index: number): CSSProperties => ({ '--i': index } as CSSProperties);
 
@@ -12,7 +14,18 @@ interface DestinationPageProps {
 
 export function DestinationPage({ destinationKey }: DestinationPageProps) {
   const { openDialog } = useRecommendation();
+  const reduce = useReducedMotion();
   const destination = byKey(destinationKey ?? '');
+
+  const scrollToTickets = () => {
+    const section = document.getElementById('tiket');
+    if (!section) return;
+    section.scrollIntoView({
+      behavior: reduce ? 'auto' : 'smooth',
+      block: 'start',
+    });
+    document.getElementById('ticket-title')?.focus({ preventScroll: true });
+  };
 
   if (!destination) {
     return (
@@ -123,12 +136,17 @@ export function DestinationPage({ destinationKey }: DestinationPageProps) {
               <button className="btn dest-cta" type="button" onClick={openDialog}>
                 Minta rekomendasi
               </button>
+              <button className="dest-ticket-link" type="button" onClick={scrollToTickets}>
+                Lihat tiket &amp; paket
+              </button>
             </div>
             <p className="dest-aside-note">
               Tiga pertanyaan singkat, lalu BOMA menyusun pilihan wisata yang paling sesuai.
             </p>
           </aside>
         </div>
+
+        <TicketSection destination={destination} />
 
         <div className="wrap dest-more">
           <header className="dest-more-head rv">

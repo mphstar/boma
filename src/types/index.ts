@@ -18,6 +18,18 @@ export type LeafKey =
 
 export type Route = 'home' | 'katalog' | 'hasil' | 'wisata';
 
+export type TicketUnit = 'orang' | 'jeep' | 'malam' | 'paket';
+
+export interface TicketPlan {
+  id: string;
+  kind: 'Tiket' | 'Paket' | 'Menginap';
+  name: string;
+  description: string;
+  price: number;
+  unit: TicketUnit;
+  minQty?: number;
+}
+
 export interface Destination {
   id: number;
   key: string;
