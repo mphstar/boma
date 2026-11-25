@@ -39,7 +39,7 @@ export const WHY: Record<LeafKey, string[]> = {
   ],
   'sedang-individu': [
     'Dengan intensitas sedang dan bepergian sendiri, pohon keputusan memilih wisata sosial budaya.',
-    'Event & Festival Budaya menghadirkan kesenian tradisional Jember di kawasan BOMA.',
+    'Event & Festival Budaya menghadirkan kesenian tradisional Jember di kawasan SAI-Agro.',
     'Pada cabang ini, pilihan harga tidak lagi mengubah hasil klasifikasi.',
   ],
   'santai-premium': [

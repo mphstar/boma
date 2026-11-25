@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://boma.j-pims.com">
-    <img src="public/og-image.jpg" alt="BOMA Gunung Pasang, kebun kopi dan air terjun di Jember" width="100%">
+  <a href="https://saiagro.j-pims.com">
+    <img src="public/og-image.jpg" alt="SAI-Agro, kebun kopi dan air terjun di Jember" width="100%">
   </a>
 </p>
 
-<h1 align="center">BOMA Gunung Pasang</h1>
+<h1 align="center">SAI-Agro</h1>
 
 <p align="center">
   <strong>Kebun kopi, air terjun, dan udara gunung di Jember.</strong><br>
@@ -12,19 +12,19 @@
 </p>
 
 <p align="center">
-  <a href="https://boma.j-pims.com">
-    <img src="https://img.shields.io/badge/Buka_Situs-boma.j--pims.com-1c3a2b?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=f4efde" alt="Buka situs BOMA">
+  <a href="https://saiagro.j-pims.com">
+    <img src="https://img.shields.io/badge/Buka_Situs-saiagro.j--pims.com-1c3a2b?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=f4efde" alt="Buka situs SAI-Agro">
   </a>
   <img src="https://img.shields.io/badge/Jember-Indonesia-6f7d3c?style=for-the-badge&amp;logo=googlemaps&amp;logoColor=white" alt="Jember, Indonesia">
   <img src="https://img.shields.io/badge/14-Destinasi-2c4f38?style=for-the-badge" alt="14 destinasi">
 </p>
 
-BOMA Gunung Pasang adalah kawasan wisata di lereng Gunung Pasang. Di dalamnya ada kebun kopi dan karet, air terjun, goa, candi, sampai area camping. Empat belas destinasi itu kini punya satu tempat untuk dilihat, dibandingkan, dan dipilih.
+SAI-Agro adalah kawasan wisata di lereng Gunung Pasang. Di dalamnya ada kebun kopi dan karet, air terjun, goa, candi, sampai area camping. Empat belas destinasi itu kini punya satu tempat untuk dilihat, dibandingkan, dan dipilih.
 
-Situs ini dibuat untuk pengunjung yang datang dengan waktu terbatas. Kalau bingung harus ke mana, jawab tiga pertanyaan singkat. BOMA akan menunjukkan tempat yang paling cocok, lengkap dengan alasan kenapa tempat itu dipilih.
+Situs ini dibuat untuk pengunjung yang datang dengan waktu terbatas. Kalau bingung harus ke mana, jawab tiga pertanyaan singkat. SAI-Agro akan menunjukkan tempat yang paling cocok, lengkap dengan alasan kenapa tempat itu dipilih.
 
 > [!TIP]
-> Baru pertama kali? Mulai dari [Beranda](https://boma.j-pims.com), atau langsung buka [katalog](https://boma.j-pims.com/#/katalog).
+> Baru pertama kali? Mulai dari [Beranda](https://saiagro.j-pims.com), atau langsung buka [katalog](https://saiagro.j-pims.com/#/katalog).
 
 ## 🌿 Yang bisa dilakukan
 
@@ -32,14 +32,14 @@ Situs ini dibuat untuk pengunjung yang datang dengan waktu terbatas. Kalau bingu
 - 🗂️ **Katalog lengkap.** Empat belas destinasi, bisa disaring berdasarkan Minat Khusus, Alam, Buatan, atau Sosial Budaya.
 - 🏞️ **Detail yang berguna.** Harga, durasi, tingkat aktivitas, dan destinasi lain yang mirip.
 - 🎟️ **Tiket dan paket.** Tiap wisata punya pilihan tiket masuk dan paket pengalaman, dengan harga Rupiah dan alur pemesanan.
-- 🗺️ **Ekspedisi BOMA.** Halaman [`#/jelajah`](https://boma.j-pims.com/#/jelajah) menampilkan 14 wilayah yang terkunci. Pindai QR di lokasi untuk membukanya. Ini simulasi tanpa hadiah, dan progres hanya disimpan di perangkat.
+- 🗺️ **Ekspedisi SAI-Agro.** Halaman [`#/jelajah`](https://saiagro.j-pims.com/#/jelajah) menampilkan 14 wilayah yang terkunci. Pindai QR di lokasi untuk membukanya. Ini simulasi tanpa hadiah, dan progres hanya disimpan di perangkat.
 - ⌨️ **Bisa dipakai tanpa mouse.** Fokus keyboard terlihat, dan dialog bisa ditutup dengan Escape.
-- 🌾 **Gerak yang sopan.** Animasi mengikuti pengaturan perangkat. Kalau gerak diminta dikurangi, BOMA ikut tenang.
+- 🌾 **Gerak yang sopan.** Animasi mengikuti pengaturan perangkat. Kalau gerak diminta dikurangi, SAI-Agro ikut tenang.
 
 > [!NOTE]
 > Pembayaran online belum aktif. Harga tiket di situs ini masih perkiraan, dan kode QRIS belum terhubung ke sistem pembayaran. Konfirmasi tarif, pembayaran, dan ketersediaan ke pengelola sebelum datang. Tidak ada data pemesan yang dikirim ke server.
 
-## 🧭 Cara BOMA memilih
+## 🧭 Cara SAI-Agro memilih
 
 Pertanyaan pertama adalah seberapa aktif pengunjung ingin bergerak. Jawaban itu menentukan cabang berikutnya: anggaran atau teman perjalanan. Dari sana ada tujuh hasil yang mungkin, dan setiap hasil membawa daftar destinasi beserta alasannya.
 
@@ -56,10 +56,10 @@ Gerak dipakai untuk memberi arah, bukan mengisi ruang. Ada pergantian halaman, f
 <p align="center">
   <img src="public/images/opt/jeep-bg-960.webp" width="32%" alt="Jeep Adventure di jalur perkebunan">
   <img src="public/images/opt/kopi-bg-960.webp" width="32%" alt="Kebun kopi di Gunung Pasang">
-  <img src="public/images/opt/event-bg-960.webp" width="32%" alt="Pertunjukan budaya di BOMA">
+  <img src="public/images/opt/event-bg-960.webp" width="32%" alt="Pertunjukan budaya di SAI-Agro">
 </p>
 
-<p align="center"><em>Petualangan, kebun, dan budaya. Tiga sisi BOMA yang muncul di situs.</em></p>
+<p align="center"><em>Petualangan, kebun, dan budaya. Tiga sisi SAI-Agro yang muncul di situs.</em></p>
 
 ## 🛠️ Di balik layar
 
@@ -100,12 +100,12 @@ Dashboard pengelola ada di `/#/admin`. Tautan admin sengaja tidak ditampilkan di
 
 Di menu **QR Debug** (`/#/admin/qr`) pengelola bisa melihat QR untuk tiap wilayah, menyalin link, membuka wilayah sebagai simulasi pindai, mengunci kembali, atau mereset seluruh progres.
 
-## 🎮 Ekspedisi BOMA
+## 🎮 Ekspedisi SAI-Agro
 
-Halaman `/#/jelajah` adalah gamifikasi ringan: semua wilayah tampil terkunci, lalu terbuka saat QR-nya dipindai. QR berisi tautan `#/jelajah/buka/BOMA-<KODE>`; membuka tautan itu langsung menyimpan status terbuka.
+Halaman `/#/jelajah` adalah gamifikasi ringan: semua wilayah tampil terkunci, lalu terbuka saat QR-nya dipindai. QR berisi tautan `#/jelajah/buka/SAIAGRO-<KODE>`; membuka tautan itu langsung menyimpan status terbuka.
 
-- Progres disimpan di `localStorage` dengan kunci `boma.explorer.v1` dan tersinkron antar-tab pada browser yang sama lewat event `storage`.
-- Pemindaian memakai kamera (`getUserMedia` + `jsqr`). Kalau kamera tidak tersedia, kode seperti `BOMA-JEEP` bisa dimasukkan manual.
+- Progres disimpan di `localStorage` dengan kunci `sai-agro.explorer.v1` dan tersinkron antar-tab pada browser yang sama lewat event `storage`.
+- Pemindaian memakai kamera (`getUserMedia` + `jsqr`). Kalau kamera tidak tersedia, kode seperti `SAIAGRO-JEEP` bisa dimasukkan manual.
 - Karena berbasis `localStorage`, progres berlaku per perangkat/browser. Belum ada server, akun, atau hadiah.
 - QR dibuat di sisi klien dengan pustaka `qrcode`; tidak ada data yang dikirim ke luar.
 
@@ -115,7 +115,7 @@ Foto katalog berasal dari Wikimedia Commons. Judul berkas, pembuat, dan lisensi 
 
 ## 📄 Lisensi
 
-Repositori ini belum menyertakan berkas lisensi. Hubungi pemilik proyek sebelum memakai ulang kode atau aset di luar situs BOMA.
+Repositori ini belum menyertakan berkas lisensi. Hubungi pemilik proyek sebelum memakai ulang kode atau aset di luar situs SAI-Agro.
 
 ## 👋 Tentang pembuat
 

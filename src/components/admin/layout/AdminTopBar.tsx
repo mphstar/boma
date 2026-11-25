@@ -79,8 +79,8 @@ export function AdminTopBar({ menuOpen, onToggleMenu, onToggleTheme }: AdminTopB
       <div className="user">
         <div className="av">AD</div>
         <div>
-          Admin BOMA
-          <small>@admin_boma</small>
+          Admin SAI-Agro
+          <small>@admin_saiagro</small>
         </div>
       </div>
 

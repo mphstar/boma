@@ -32,7 +32,7 @@ export function buildSummary({ selection, result }: Recommendation): string {
     .join(', ');
 
   return [
-    'BOMA – Rekomendasi Wisata',
+    'SAI-Agro – Rekomendasi Wisata',
     `Profil: ${selection.activity} · ${selection.price} · ${selection.tourist}`,
     `Kategori: ${result.category}`,
     `Destinasi: ${names}`,

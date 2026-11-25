@@ -13,7 +13,7 @@ export function HelpPage() {
         </details>
       ))}
       <p className="help-link">
-        <a href="#/">Buka website BOMA ↗</a>
+        <a href="#/">Buka website SAI-Agro ↗</a>
       </p>
     </div>
   );

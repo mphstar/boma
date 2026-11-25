@@ -53,7 +53,7 @@ export function ResultPage() {
             <div>
               <p className="rep-kicker">Jelajahi lainnya</p>
               <h2 className="h2 rep-more-title" id="repMoreHead">
-                Wisata lain di BOMA Gunung Pasang
+                Wisata lain di SAI-Agro
               </h2>
             </div>
             <a className="rep-more-link" href="#/katalog">
@@ -74,7 +74,7 @@ export function ResultPage() {
           </div>
 
           <p className="disc rv">
-            Harga pada kartu bersumber dari booklet BOMA dan bersifat indikatif. Konfirmasi tarif
+            Harga pada kartu bersumber dari booklet SAI-Agro dan bersifat indikatif. Konfirmasi tarif
             aktual, jadwal, dan ketersediaan kepada pengelola Perumda Perkebunan Kahyangan Jember.
           </p>
         </div>

@@ -36,7 +36,7 @@ function AdminShell() {
 
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = 'BOMA Gunung Pasang | Dashboard Admin';
+    document.title = 'SAI-Agro | Dashboard Admin';
     // `data-page` milik dashboard; halaman situs akan memasang nilainya sendiri.
     document.body.dataset.page = 'admin';
     return () => {

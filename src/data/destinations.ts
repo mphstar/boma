@@ -168,7 +168,7 @@ export const DESTINATIONS: Destination[] = [
     tourist: 'Individu',
     priceNote: 'Tiket masuk Rp 5.000 – 8.000',
     description:
-      'Saksikan pertunjukan kesenian tradisional Jember (Janger, Jaranan, Campursari, pecut, dll) yang digelar di kawasan BOMA. Festival BOMA digelar berkala sebagai kolaborasi Perumda Kahyangan dan Laskar Kesenian Jember.',
+      'Saksikan pertunjukan kesenian tradisional Jember (Janger, Jaranan, Campursari, pecut, dll) yang digelar di kawasan SAI-Agro. Festival SAI-Agro digelar berkala sebagai kolaborasi Perumda Kahyangan dan Laskar Kesenian Jember.',
   },
   {
     id: 14,

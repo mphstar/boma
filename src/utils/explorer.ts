@@ -1,7 +1,7 @@
 import { byKey } from '../data/destinations';
 
-const STORAGE_KEY = 'boma.explorer.v1';
-const EXPLORER_EVENT = 'boma:explorer';
+const STORAGE_KEY = 'sai-agro.explorer.v1';
+const EXPLORER_EVENT = 'sai-agro:explorer';
 
 export interface ExplorerState {
   unlocked: Record<string, string>;
@@ -72,7 +72,7 @@ export const subscribeExplorer = (listener: () => void): (() => void) => {
   };
 };
 
-export const explorerCode = (key: string): string => `BOMA-${key.toUpperCase()}`;
+export const explorerCode = (key: string): string => `SAIAGRO-${key.toUpperCase()}`;
 
 export const explorerUnlockUrl = (key: string): string => {
   const base = `${window.location.origin}${window.location.pathname}`;
@@ -85,7 +85,7 @@ export const explorerPayloadFromHash = (hash: string): string | undefined => {
   return match ? decodeURIComponent(match[1]) : undefined;
 };
 
-/** Menerima kode mentah (BOMA-JEEP) maupun URL hasil pindaian QR. */
+/** Menerima kode mentah (SAIAGRO-JEEP) maupun URL hasil pindaian QR. */
 export const areaKeyFromPayload = (payload: string): string | null => {
   let decoded = payload.trim();
   try {
@@ -93,9 +93,9 @@ export const areaKeyFromPayload = (payload: string): string | null => {
   } catch {
     // Biarkan teks apa adanya kalau bukan URL yang valid.
   }
-  const code = decoded.match(/BOMA-[A-Z0-9]+/i)?.[0]?.toUpperCase();
+  const code = decoded.match(/SAIAGRO-[A-Z0-9]+/i)?.[0]?.toUpperCase();
   if (!code) return null;
-  const key = code.slice('BOMA-'.length).toLowerCase();
+  const key = code.slice('SAIAGRO-'.length).toLowerCase();
   return byKey(key) ? key : null;
 };
 

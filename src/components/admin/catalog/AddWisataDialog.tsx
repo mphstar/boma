@@ -13,7 +13,7 @@ export function AddWisataDialog({ onClose, onSave }: AddWisataDialogProps) {
   return (
     <AdminDialog label="Tambah Wisata" onClose={onClose}>
       <h3>Tambah Wisata</h3>
-      <p>Isi data wisata baru untuk ditampilkan di website BOMA.</p>
+      <p>Isi data wisata baru untuk ditampilkan di website SAI-Agro.</p>
       <form
         className="form"
         onSubmit={(event) => {

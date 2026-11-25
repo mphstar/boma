@@ -26,7 +26,7 @@ export function NavBar({ route }: { route: Route }) {
           height="28"
           decoding="async"
         />
-        BOMA
+        SAI-Agro
       </a>
       <div className="links">
         {links.map((link) => (

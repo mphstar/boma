@@ -41,7 +41,7 @@ function AppShell() {
         : activeRoute === 'hasil'
           ? 'Rekomendasi'
           : activeRoute === 'jelajah'
-            ? 'Jelajah BOMA'
+            ? 'Jelajah SAI-Agro'
             : (destinationKey && byKey(destinationKey)?.name) || 'Detail wisata';
 
   const [shownView, setShownView] = useState<PageView>(() => ({

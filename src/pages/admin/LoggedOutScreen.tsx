@@ -4,7 +4,7 @@ export function LoggedOutScreen({ onLogin }: { onLogin: () => void }) {
       <div>
         <div className="bye-emoji">👋</div>
         <h2>Anda telah keluar</h2>
-        <p>Sampai jumpa di BOMA Gunung Pasang.</p>
+        <p>Sampai jumpa di SAI-Agro.</p>
         <button type="button" className="add" onClick={onLogin}>
           Masuk kembali
         </button>

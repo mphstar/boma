@@ -123,7 +123,7 @@ export function ScanDialog({ open, onClose }: ScanDialogProps) {
               }
               if (now - lastInvalid > 2500) {
                 lastInvalid = now;
-                setMessage('QR ini bukan bagian dari ekspedisi BOMA.');
+                setMessage('QR ini bukan bagian dari ekspedisi SAI-Agro.');
               }
             }
           }
@@ -185,7 +185,7 @@ export function ScanDialog({ open, onClose }: ScanDialogProps) {
     event.preventDefault();
     const key = areaKeyFromPayload(manual);
     if (!key) {
-      setMessage('Kode tidak dikenali. Contoh kode yang benar: BOMA-JEEP');
+      setMessage('Kode tidak dikenali. Contoh kode yang benar: SAIAGRO-JEEP');
       return;
     }
     finish(key);
@@ -211,7 +211,7 @@ export function ScanDialog({ open, onClose }: ScanDialogProps) {
       <div className="scan-shell">
         <div className="scan-head">
           <div>
-            <p className="scan-kicker">{success ? 'Ekspedisi BOMA' : 'Pindai QR'}</p>
+            <p className="scan-kicker">{success ? 'Ekspedisi SAI-Agro' : 'Pindai QR'}</p>
             <h2 className="scan-title" id="scan-title">
               {success ? 'Wilayah ditemukan!' : 'Buka wilayah baru'}
             </h2>
@@ -287,7 +287,7 @@ export function ScanDialog({ open, onClose }: ScanDialogProps) {
                   id="scan-code"
                   value={manual}
                   onChange={(event) => setManual(event.target.value)}
-                  placeholder="Contoh: BOMA-JEEP"
+                  placeholder="Contoh: SAIAGRO-JEEP"
                   autoComplete="off"
                   autoCapitalize="characters"
                   spellCheck={false}

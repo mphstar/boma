@@ -131,7 +131,7 @@ export function TransitionOverlay({ phase, label }: TransitionOverlayProps) {
         <div className={`to-loader${loaderOn ? ' on' : ''}`}>
           <div className="to-mark">
             <span className="to-ping" />
-            <span className="to-word">BOMA</span>
+            <span className="to-word">SAI-Agro</span>
           </div>
           <span className="to-route">{label}</span>
           <div className="to-progress">

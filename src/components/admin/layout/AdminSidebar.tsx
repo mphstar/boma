@@ -50,8 +50,7 @@ export function AdminSidebar({ onLogout }: { onLogout: () => void }) {
           />
         </span>
         <div>
-          BOMA
-          <small>Gunung Pasang</small>
+          SAI-Agro
         </div>
       </div>
 

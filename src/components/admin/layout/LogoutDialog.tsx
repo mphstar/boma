@@ -9,7 +9,7 @@ export function LogoutDialog({ onCancel, onConfirm }: LogoutDialogProps) {
   return (
     <AdminDialog label="Keluar" onClose={onCancel}>
       <h3>Keluar?</h3>
-      <p>Anda akan keluar dari dashboard admin BOMA.</p>
+      <p>Anda akan keluar dari dashboard admin SAI-Agro.</p>
       <div className="acts">
         <button type="button" className="ghost" onClick={onCancel}>
           Batal

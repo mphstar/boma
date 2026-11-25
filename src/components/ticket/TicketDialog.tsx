@@ -86,7 +86,7 @@ function OrderQr({ seed }: { seed: string }) {
     <svg
       viewBox={`0 0 ${QR_SIZE} ${QR_SIZE}`}
       role="img"
-      aria-label="Kode QRIS pesanan kunjungan BOMA"
+      aria-label="Kode QRIS pesanan kunjungan SAI-Agro"
       shapeRendering="crispEdges"
     >
       <rect width={QR_SIZE} height={QR_SIZE} fill="#ffffff" />
@@ -193,7 +193,7 @@ export function TicketDialog({ destination, plan, onClose }: TicketDialogProps) 
     if (!current) return;
     const suffix = Math.random().toString(36).slice(2, 6).toUpperCase();
     const prefix = current.id.replace(/[^a-z0-9]/gi, '').slice(0, 4).toUpperCase();
-    setOrderCode(`BOMA-${prefix}-${suffix}`);
+    setOrderCode(`SAIAGRO-${prefix}-${suffix}`);
     setStep('done');
   };
 
@@ -349,7 +349,7 @@ export function TicketDialog({ destination, plan, onClose }: TicketDialogProps) 
               <div className="qris-card">
                 <div className="qris-top">
                   <span className="qris-brand">QRIS</span>
-                  <span className="qris-issuer">BOMA</span>
+                  <span className="qris-issuer">SAI-Agro</span>
                 </div>
                 <div className="qris-code">
                   <OrderQr seed={`${destination.key}-${current.id}`} />

@@ -1,8 +1,8 @@
 {
-  "name": "BOMA Gunung Pasang",
-  "short_name": "BOMA",
+  "name": "SAI-Agro",
+  "short_name": "SAI-Agro",
   "id": "/",
-  "description": "Informasi dan rekomendasi wisata kawasan BOMA Gunung Pasang, Jember.",
+  "description": "Informasi dan rekomendasi wisata kawasan SAI-Agro, Jember.",
   "lang": "id",
   "dir": "ltr",
   "start_url": "/",

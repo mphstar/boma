@@ -89,7 +89,7 @@ export function exportOrdersCsv(orders: AdminOrder[]): void {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = 'pemesanan-boma.csv';
+  link.download = 'pemesanan-sai-agro.csv';
   document.body.appendChild(link);
   link.click();
   link.remove();

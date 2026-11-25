@@ -185,7 +185,7 @@ export const initialGuides: AdminGuide[] = [
 ];
 
 export const initialSettings: AdminSettings = {
-  areaName: 'BOMA Gunung Pasang',
+  areaName: 'SAI-Agro',
   location: 'Jember, Jawa Timur',
   flags: {
     notifyOrders: true,

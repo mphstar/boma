@@ -32,7 +32,7 @@ export function DestinationPage({ destinationKey }: DestinationPageProps) {
       <main className="destination-page">
         <div className="wrap destination-empty">
           <h1>Wisata tidak ditemukan</h1>
-          <p>Alamat ini tidak cocok dengan wisata mana pun di katalog BOMA.</p>
+          <p>Alamat ini tidak cocok dengan wisata mana pun di katalog SAI-Agro.</p>
           <a className="btn dark" href="#/katalog">
             Kembali ke katalog
           </a>
@@ -99,7 +99,7 @@ export function DestinationPage({ destinationKey }: DestinationPageProps) {
               <h2>Tentang wisata ini</h2>
               <p>{destination.description}</p>
               <p className="dest-source">
-                Ringkasan disusun dari booklet BOMA dan bersifat indikatif.
+                Ringkasan disusun dari booklet SAI-Agro dan bersifat indikatif.
               </p>
             </div>
 
@@ -132,7 +132,7 @@ export function DestinationPage({ destinationKey }: DestinationPageProps) {
             <div className="destination-price">
               <h2>Perkiraan biaya</h2>
               <strong>{destination.priceNote}</strong>
-              <p>Harga indikatif dari booklet BOMA. Konfirmasi tarif dan paket kepada pengelola.</p>
+              <p>Harga indikatif dari booklet SAI-Agro. Konfirmasi tarif dan paket kepada pengelola.</p>
               <button className="btn dest-cta" type="button" onClick={openDialog}>
                 Minta rekomendasi
               </button>
@@ -141,7 +141,7 @@ export function DestinationPage({ destinationKey }: DestinationPageProps) {
               </button>
             </div>
             <p className="dest-aside-note">
-              Tiga pertanyaan singkat, lalu BOMA menyusun pilihan wisata yang paling sesuai.
+              Tiga pertanyaan singkat, lalu SAI-Agro menyusun pilihan wisata yang paling sesuai.
             </p>
           </aside>
         </div>
@@ -152,7 +152,7 @@ export function DestinationPage({ destinationKey }: DestinationPageProps) {
           <header className="dest-more-head rv">
             <div>
               <p className="dest-kicker">Jelajahi lainnya</p>
-              <h2>Wisata lain di BOMA</h2>
+              <h2>Wisata lain di SAI-Agro</h2>
             </div>
             <a className="dest-more-link" href="#/katalog">
               Lihat semua wisata

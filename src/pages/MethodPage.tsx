@@ -7,10 +7,10 @@ export function MethodPage() {
     <section className="view" id="metode">
       <div className="wrap">
         <div className="rv">
-          <h2 className="h2">Cara BOMA merekomendasikan</h2>
+          <h2 className="h2">Cara SAI-Agro merekomendasikan</h2>
           <p className="sub">
             Decision Tree ID3 memilih atribut dengan Information Gain tertinggi sebagai akar pohon.
-            Dari dataset tipe wisata BOMA, atribut itu adalah Tingkat Aktivitas (0.7014).
+            Dari dataset tipe wisata SAI-Agro, atribut itu adalah Tingkat Aktivitas (0.7014).
           </p>
         </div>
 

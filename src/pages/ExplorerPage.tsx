@@ -42,7 +42,7 @@ export function ExplorerPage({ scanPayload }: ExplorerPageProps) {
     if (!key) {
       setNotice({
         kind: 'info',
-        text: 'Kode QR tidak dikenali. Pastikan Anda memindai QR ekspedisi BOMA yang benar.',
+        text: 'Kode QR tidak dikenali. Pastikan Anda memindai QR ekspedisi SAI-Agro yang benar.',
       });
       cleanHash();
       return;
@@ -65,7 +65,7 @@ export function ExplorerPage({ scanPayload }: ExplorerPageProps) {
       <section className="explorer-hero">
         <div className="wrap explorer-hero-grid">
           <div className="explorer-hero-copy rv">
-            <p className="explorer-kicker">Ekspedisi BOMA · Simulasi</p>
+            <p className="explorer-kicker">Ekspedisi SAI-Agro · Simulasi</p>
             <h1>
               Buka wilayah,
               <br />
@@ -92,7 +92,7 @@ export function ExplorerPage({ scanPayload }: ExplorerPageProps) {
                 <span>01</span>
                 <div>
                   <b>Kunjungi lokasi</b>
-                  <small>Datang ke salah satu area wisata BOMA yang masih terkunci.</small>
+                  <small>Datang ke salah satu area wisata SAI-Agro yang masih terkunci.</small>
                 </div>
               </li>
               <li>

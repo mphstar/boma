@@ -20,7 +20,7 @@ export function CatalogPage() {
     <section className="view" id="katalog">
       <div className="wrap">
         <header className="catalog-heading rv">
-          <p className="catalog-kicker">Pilihan wisata BOMA</p>
+          <p className="catalog-kicker">Pilihan wisata SAI-Agro</p>
           <h1 className="h2">Temukan tempat yang ingin Anda kunjungi</h1>
           <p className="sub">
             Pilih kegiatan alam, budaya, atau pengalaman bersama keluarga dan rombongan di Gunung

@@ -10,10 +10,10 @@ export function Footer() {
             height="28"
             decoding="async"
           />
-          BOMA
+          SAI-Agro
         </div>
         <p>
-          Informasi wisata untuk kawasan BOMA Gunung Pasang, Perumda Perkebunan Kahyangan Jember.
+          Informasi wisata untuk kawasan SAI-Agro, Perumda Perkebunan Kahyangan Jember.
           Harga di situs ini adalah perkiraan. Hubungi pengelola untuk biaya dan jadwal terbaru.
         </p>
         <div className="site-links">
